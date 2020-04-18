@@ -1,0 +1,31 @@
+@import '../variables.scss';
+
+.burger {
+    height: $burger-height;
+    width: $burger-width;
+    margin: auto;
+    text-align: center;
+    font-weight: bold;
+    font-size: $burger-font-size;
+}
+
+@media(min-width: 500px) and (min-height: 400px){
+    .burger {
+        height: $burger-alt-height3;
+        width: $burger-alt-width3;
+    }
+}
+
+@media(min-width: 500px) and (min-height: 401px){
+    .burger {
+        height: $burger-alt-height2;
+        width: $burger-alt-width2;
+    }
+}
+
+@media(min-width: 1000px) and (min-height: 700px){
+    .burger {
+        height: $burger-alt-height;
+        width: $burger-alt-width;
+    }
+}
