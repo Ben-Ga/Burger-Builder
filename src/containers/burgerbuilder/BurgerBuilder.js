@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Auxiliary from '../../hoc/Auxiliary'
 import Burger from '../../components/Burger/Burger'
+import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 
 export default class BurgerBuilder extends Component {
 
@@ -26,7 +27,7 @@ export default class BurgerBuilder extends Component {
                     />
                 </div>
                 <div>
-                    Build Controls
+                    <BuildControls />
                 </div>
             </Auxiliary>
         )
