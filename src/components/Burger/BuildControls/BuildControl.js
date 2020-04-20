@@ -6,8 +6,8 @@ const BuildControl = (props) => {
     return (
         <div className={classes.buildControl}>
             <div className={classes.controlTitle}>{props.ingrdTitle}</div>
-            <button>Add</button>
-            <button>Remove</button>
+            <button onClick={props.added}>Add</button>
+            <button onClick={props.removed} disabled={props.disabled}>Remove</button>
         </div>
     )
 }
