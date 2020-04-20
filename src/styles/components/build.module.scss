@@ -1,0 +1,12 @@
+@import '../variables.scss';
+
+.buildControls {
+    width: $build-controls-width;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    box-shadow: 0 2px 1px #ccc;
+    margin: auto;
+    padding: 10px 0;
+    background-color: #378fa3;
+}

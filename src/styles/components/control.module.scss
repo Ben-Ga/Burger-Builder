@@ -1,0 +1,38 @@
+@import '../variables.scss';
+
+
+.buildControl {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: $build-control-margin;
+
+}
+
+.buildControl button{
+    display: block;
+    font: inherit;
+    padding: 0 5px;
+    margin: 5px;
+}
+
+
+.controlTitle {
+    color: whitesmoke;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.buildControl button:disabled {
+    background-color: #AC9980;
+    border: 1px solid #7E7365;
+    color: #ccc;
+    cursor: default;
+}
+
+.buildControl button:hover:disabled {
+    background-color: #AC9980;
+    color: #ccc;
+    cursor: not-allowed;
+}
+

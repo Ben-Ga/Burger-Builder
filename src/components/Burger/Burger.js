@@ -5,11 +5,11 @@ import BurgerIngredient from "../Burger/BurgerIngredient/BurgerIngredient";
 import classes from "../../styles/components/burger.module.scss";
 
 const Burger = (props) => {
-  const transformedIngredients = Object.keys(props.ingredients).map((ingrd) => {
+  const transformedIngredients = Object.keys(props.ingredients).map(ingrd => {
     return [...Array(props.ingredients[ingrd])].map((_, i) => {
       return <BurgerIngredient key={ingrd + i} ingredientType={ingrd} />;
     });
-  }).reduce((arr, elm) =>{ return arr.concat(elm)}, [])
+  }).reduce((arr, elm) =>{ return arr.concat(elm)}, []);
    //turn the object passed, into set of arrays of length the value that each key was assigned in state of BurgerBuilder
    //the reduce function then flattens the array, allowing us to check its length properly
 
