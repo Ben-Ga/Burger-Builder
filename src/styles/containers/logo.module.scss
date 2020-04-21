@@ -1,0 +1,14 @@
+
+@import '../variables.scss';
+
+.logo {
+    background-color: #5c6767;
+    padding: 4px;
+    height: $logo-height;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.logo img {
+    height: $logo-img-height;
+}
