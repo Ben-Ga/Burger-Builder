@@ -1,0 +1,11 @@
+@import '../variables.scss';
+
+.backdrop {
+    width: $backdrop-width;
+    height: $backdrop-height;
+    position: fixed;
+    z-index: $backdrop-z-index;
+    left: $backdrop-left;
+    top: $backdrop-top;
+    background-color: rgba(0,0,0,0.5);
+}

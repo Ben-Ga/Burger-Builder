@@ -1,17 +1,24 @@
-import React from 'react'
+import React, { useContext } from "react";
 
-import classes from '../../styles/components/modal.module.scss'
+import classes from "../../styles/components/modal.module.scss";
+import Auxiliary from "../../hoc/Auxiliary";
+import Backdrop from "./Backdrop";
 
 const Modal = (props) => {
-    return (
-        <div className={classes.Modal}
-             style={{
-                 transform: props.show ? 'translateY(0)' : 'translateY(-100vh)',
-                 opacity: props.show ? '1' : '0'
-             }}>
-            {props.children}
-        </div>
-    )
-}
+  return (
+    <Auxiliary>
+        <Backdrop show={props.show} clicked={props.modalClose}/>
+      <div
+        className={classes.Modal}
+        style={{
+          transform: props.show ? "translateY(0)" : "translateY(-100vh)",
+          opacity: props.show ? "1" : "0",
+        }}
+      >
+        {props.children}
+      </div>
+    </Auxiliary>
+  );
+};
 
-export default Modal
+export default Modal;
