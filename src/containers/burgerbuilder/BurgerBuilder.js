@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import Auxiliary from '../../hoc/Auxiliary'
 import Burger from '../../components/Burger/Burger'
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
+import Modal from '../../components/UI/Modal'
+import OrderSummary from '../../components/Burger/OrderSummary';
 
 const BASE_PRICE = 2.50;
 
@@ -24,9 +26,23 @@ export default class BurgerBuilder extends Component {
                  meat: 0,
                  cheese: 0,
             },
-            totalPrice: BASE_PRICE
+            totalPrice: BASE_PRICE,
+            purchasable: false,
+            purchasing: false,
         }
 
+    }
+
+    checkPurchaseable = (ingredients) => {
+        const sum = Object.keys(ingredients)
+            .map(igKey => {
+                return ingredients[igKey];
+            }).reduce((sum, elm) => {
+                return sum + elm;
+            }, 0);
+        this.setState({
+            purchasable: sum > 0
+        })
     }
 
     addIngredient = (ingrType) => {
@@ -46,6 +62,7 @@ export default class BurgerBuilder extends Component {
             ingredients: updatedIngredients,
             totalPrice: updatedPrice
         })
+        this.checkPurchaseable(updatedIngredients)
     }
 
     removeIngredient = (ingrType) => {
@@ -68,7 +85,13 @@ export default class BurgerBuilder extends Component {
             ingredients: updatedIngredients,
             totalPrice: updatedPrice,
         })
+        this.checkPurchaseable(updatedIngredients)
+    }
 
+    purchaseHandler = () => {
+        this.setState({
+            purchasing: true
+        })
     }
     render() {
         const disableInfo = {
@@ -77,8 +100,14 @@ export default class BurgerBuilder extends Component {
         for(let key in disableInfo){
             disableInfo[key] = disableInfo[key] <= 0; //set a true/false for each ingredient
         }
+
         return (
             <Auxiliary>
+                    <Modal show={this.state.purchasing}>
+                        <OrderSummary
+                            ingredients={this.state.ingredients}
+                        />
+                    </Modal>
                 <div>
                     <Burger 
                         ingredients={this.state.ingredients}
@@ -89,6 +118,9 @@ export default class BurgerBuilder extends Component {
                         ingredientAdded={this.addIngredient}
                         ingredientRemoved={this.removeIngredient}
                         disabled={disableInfo}
+                        price={this.state.totalPrice}
+                        purchasable={this.state.purchasable}
+                        purchasing={this.purchaseHandler}
                     />
                 </div>
             </Auxiliary>
