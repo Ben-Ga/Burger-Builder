@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import classes from "../../styles/components/modal.module.scss";
 import Auxiliary from "../../hoc/Auxiliary";

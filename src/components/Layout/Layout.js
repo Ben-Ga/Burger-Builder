@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React from "react";
 import Auxiliary from "../../hoc/Auxiliary";
 import classes from '../../styles/components/Layout.module.scss'
 import Toolbar from "../nav/Toolbar";
