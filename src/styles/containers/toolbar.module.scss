@@ -1,0 +1,22 @@
+
+@import '../variables.scss';
+
+.toolbar{
+    height: $toolbar-height;
+    width: $toolbar-width;
+    position: fixed;
+    top: $toolbar-top;
+    left: $toolbar-left;
+    background-color: #c3c3c3c3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $toolbar-padding;
+    box-sizing: border-box;
+    z-index: $toolbar-z-index;
+}
+
+
+.toolbar nav {
+    height: $toolbar-nav-height;
+}
