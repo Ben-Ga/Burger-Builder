@@ -20,3 +20,13 @@
 .toolbar nav {
     height: $toolbar-nav-height;
 }
+
+.logo{
+    height: 80%;
+}
+
+@media (max-width: 499px){
+    .desktoponly{
+        display: none;
+    }
+}
