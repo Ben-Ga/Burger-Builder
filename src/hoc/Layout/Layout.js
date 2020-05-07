@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import Auxiliary from "../../hoc/Auxiliary";
+import Auxiliary from "../Auxiliary";
 import classes from '../../styles/components/Layout.module.scss'
-import Toolbar from "../nav/Toolbar";
-import SideDrawer from "../nav/SideDrawer/SideDrawer";
+import Toolbar from "../../components/nav/Toolbar";
+import SideDrawer from "../../components/nav/SideDrawer/SideDrawer";
 
 const Layout = (props) => {
 
@@ -19,7 +19,7 @@ const Layout = (props) => {
       <SideDrawer open={showSideDrawer} closed={sideDrawerCloseHandler}/>
 
       <main className={classes.content}>{props.children}</main>
-
+ 
     </Auxiliary>
   );
 };
