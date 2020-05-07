@@ -6,16 +6,16 @@ import SideDrawer from "../nav/SideDrawer/SideDrawer";
 
 const Layout = (props) => {
 
-  const [showSideDrawer, setClicked] = useState(true);
+  const [showSideDrawer, setClicked] = useState(false);
 
   const sideDrawerCloseHandler = () =>{
-    setClicked(false)
+    setClicked(!showSideDrawer)
   }
 
   return (
     <Auxiliary>
       <div>{/* Will store toolbar, sidedrawer and backdrop */}</div>
-      <Toolbar/>
+      <Toolbar toggleSideDrawer={sideDrawerCloseHandler}/>
       <SideDrawer open={showSideDrawer} closed={sideDrawerCloseHandler}/>
 
       <main className={classes.content}>{props.children}</main>
