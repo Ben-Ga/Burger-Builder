@@ -19,7 +19,7 @@ const Layout = (props) => {
       <SideDrawer open={showSideDrawer} closed={sideDrawerCloseHandler}/>
 
       <main className={classes.content}>{props.children}</main>
- 
+      
     </Auxiliary>
   );
 };
