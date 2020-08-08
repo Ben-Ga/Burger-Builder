@@ -17,13 +17,15 @@ export class ContactData extends Component {
 
   orderHandler = (event) => {
     event.preventDefault();
-
+    let currTime;
+    currTime = new Date().toDateString() + " " + new Date().toLocaleTimeString()
     this.setState({
       loading: true,
     });
     const order = {
       ingredients: this.props.ingredients,
       price: this.props.totalPrice,
+      timestamp: currTime,
       customer: {
         name: "Ben Gallagher",
         address: {

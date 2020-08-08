@@ -6,10 +6,10 @@ import NavItem from "./NavItem";
 const NavItems = (props) => {
   return (
     <ul className={classes.navitems}>
-      <NavItem link="/" active>
+      <NavItem link="/">
         Burger Builder
       </NavItem>
-      <NavItem link="/">Checkout</NavItem>
+      <NavItem link="/orders">Orders</NavItem>
     </ul>
   );
 };
