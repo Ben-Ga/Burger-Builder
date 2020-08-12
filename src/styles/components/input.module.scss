@@ -1,0 +1,30 @@
+.input {
+  width: 100%;
+  padding: 2vh;
+  box-sizing: border-box;
+}
+
+.label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.inputelm, .inputnotValid{
+  outline: none;
+  border: 1px solid #ccc;
+  background-color: white;
+  font: inherit;
+  padding: 6px 10px;
+  display: block;
+  width: 100%;
+}
+
+.inputelm:focus{
+    background-color: lightcyan;
+}
+
+.inputnotValid:focus{
+    background-color: rgb(255, 204, 197); 
+    box-shadow: salmon 0px 0px 2px 3px;
+}
