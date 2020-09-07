@@ -2,7 +2,6 @@ import React from "react";
 
 import Auxiliary from "../../hoc/Auxiliary";
 import Button from "../UI/Button";
-import { Link } from "react-router-dom";
 
 const OrderSummary = (props) => {
   const ingredientSummary = Object.keys(props.ingredients).map((igKey) => {
