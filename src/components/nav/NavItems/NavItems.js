@@ -10,6 +10,7 @@ const NavItems = (props) => {
         Burger Builder
       </NavItem>
       <NavItem link="/orders">Orders</NavItem>
+      <NavItem link="/auth">Register</NavItem>
     </ul>
   );
 };

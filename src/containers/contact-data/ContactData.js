@@ -176,6 +176,7 @@ export class ContactData extends Component {
         valid: this.state.orderForm[key].valid
       });
     }
+    console.log(formElements)
     let form = (
       <form className={classes.input}>
         {formElements.map((formElement) => (

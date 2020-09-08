@@ -16,3 +16,15 @@ export const purchaseInit = 'PURCHASE_INIT'
 export const loadOrdersStart = 'LOAD_ORDERS_START'
 export const loadOrdersSuccess = 'LOAD_ORDERS_SUCCESS'
 export const loadOrdersError = 'LOAD_ORDERS_ERROR'
+
+
+export const loadAuthStart = 'LOAD_AUTH_START'
+export const loadAuthSuccess = 'LOAD_AUTH_SUCCESS'
+export const loadAuthFail = 'LOAD_AUTH_FAIL'
+
+export const getAuthForm = 'GET_AUTH_FORM'
+export const inputChanged = 'INPUT_CHANGED'
+export const authStart = 'AUTH_START'
+export const authSuccess = 'AUTH_SUCCESS'
+export const authFail = 'AUTH_FAIL'
+export const authLogout = 'AUTH_LOGOUT'
