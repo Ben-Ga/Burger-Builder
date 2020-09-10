@@ -122,7 +122,7 @@ export class ContactData extends Component {
       timestamp: currTime,
       orderData: formData,
     };
-    this.props.onPurchaseAttempt(order)
+    this.props.onPurchaseAttempt(order, this.props.token)
   };
 
   inputChangedHandler = (event, inputID) => {
@@ -213,13 +213,14 @@ const mapStateToProps = state => {
   return {
     ingredients: state.burgerReducer.ingredients,
     totalPrice: state.burgerReducer.totalPrice,
-    loading: state.orderReducer.loading
+    loading: state.orderReducer.loading,
+    token: state.authReducer.token
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return{
-    onPurchaseAttempt: (orderData) => dispatch(actionTypes.attemptBurgerPurchase(orderData))
+    onPurchaseAttempt: (orderData, token) => dispatch(actionTypes.attemptBurgerPurchase(orderData, token))
   }
 }
 
