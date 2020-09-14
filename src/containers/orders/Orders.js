@@ -11,7 +11,7 @@ import * as actionTypes from '../../store/actions/index'
 export class Orders extends Component {
 
   componentDidMount() {
-    this.props.onLoadOrders(this.props.token)
+    this.props.onLoadOrders(this.props.token, this.props.userID)
   }
   render() {
     let orders;
@@ -36,7 +36,7 @@ export class Orders extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    onLoadOrders: (token) => dispatch(actionTypes.loadOrders(token))
+    onLoadOrders: (token, userID) => dispatch(actionTypes.loadOrders(token, userID))
   }
 }
 
@@ -44,8 +44,8 @@ const mapStateToProps = (state) => {
   return{
     orders: state.orderReducer.orders,
     loading: state.orderReducer.loading,
-    token: state.authReducer.token
-
+    token: state.authReducer.token,
+    userID: state.authReducer.userID
   }
 }
 

@@ -59,8 +59,8 @@ const authReducer = (state = initialState, action) => {
         case actionTypes.authSuccess:
           return {
             ...state,
-            token: action.authData.data.idToken,
-            userID: action.authData.data.localId,
+            token: action.token,
+            userID: action.userID,
             loading: false
           }
         case actionTypes.authFail:
