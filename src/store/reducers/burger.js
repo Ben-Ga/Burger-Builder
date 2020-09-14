@@ -13,6 +13,7 @@ const initialState = {
   purchaseable: false,
   loading: false,
   error: false,
+  isBuilding: false
 };
 
 const caseAddIngredient =  (state, action) => {
@@ -28,6 +29,7 @@ const caseAddIngredient =  (state, action) => {
       const updatedState = {
         ingredients: updatedIngredients,
         totalPrice: state.totalPrice + state.ingredientPrices[action.ingredientName],
+        isBuilding: true,
         purchaseable: check
       }
       return updateObject(state, updatedState)

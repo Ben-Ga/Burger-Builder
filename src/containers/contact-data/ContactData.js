@@ -121,8 +121,9 @@ export class ContactData extends Component {
       price: this.props.totalPrice,
       timestamp: currTime,
       orderData: formData,
+      userID: this.props.userID
     };
-    this.props.onPurchaseAttempt(order)
+    this.props.onPurchaseAttempt(order, this.props.token)
   };
 
   inputChangedHandler = (event, inputID) => {
@@ -176,6 +177,7 @@ export class ContactData extends Component {
         valid: this.state.orderForm[key].valid
       });
     }
+    console.log(formElements)
     let form = (
       <form className={classes.input}>
         {formElements.map((formElement) => (
@@ -212,13 +214,15 @@ const mapStateToProps = state => {
   return {
     ingredients: state.burgerReducer.ingredients,
     totalPrice: state.burgerReducer.totalPrice,
-    loading: state.orderReducer.loading
+    loading: state.orderReducer.loading,
+    token: state.authReducer.token,
+    userID: state.authReducer.userID
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return{
-    onPurchaseAttempt: (orderData) => dispatch(actionTypes.attemptBurgerPurchase(orderData))
+    onPurchaseAttempt: (orderData, token) => dispatch(actionTypes.attemptBurgerPurchase(orderData, token))
   }
 }
 

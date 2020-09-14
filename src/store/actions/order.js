@@ -24,15 +24,15 @@ export const purchaseBurgerStart = () => {
 
 export const purchaseInit = () => {
   return {
-    type: actionTypes.purchaseInit
-  }
-}
+    type: actionTypes.purchaseInit,
+  };
+};
 
-export const attemptBurgerPurchase = (orderData) => {
+export const attemptBurgerPurchase = (orderData, token) => {
   return (dispatch) => {
-      dispatch(purchaseBurgerStart())
+    dispatch(purchaseBurgerStart());
     axios
-      .post("/orders.json", orderData)
+      .post("/orders.json?auth=" + token, orderData)
       .then((response) => {
         dispatch(purchaseBurgerSuccess(response.data.name, orderData));
       })
@@ -42,10 +42,12 @@ export const attemptBurgerPurchase = (orderData) => {
   };
 };
 
-export const loadOrders  = () => {
+export const loadOrders = (token, userID) => {
   return (dispatch) => {
-    dispatch(loadOrdersStart())
-    axios.get('/orders.json')
+    dispatch(loadOrdersStart());
+    const queryParams = '?auth=' + token + '&orderBy="userID"&equalTo="' + userID + '"';
+    axios
+      .get("/orders.json" + queryParams)
       .then((response) => {
         const fetchedOrders = [];
         for (let key in response.data) {
@@ -54,30 +56,30 @@ export const loadOrders  = () => {
             id: key, //keep the key
           });
         }
-        dispatch(loadOrdersSuccess(fetchedOrders))
+        dispatch(loadOrdersSuccess(fetchedOrders));
       })
       .catch((err) => {
-        dispatch(loadOrdersError(err))
-      })
-  }
-}
+        dispatch(loadOrdersError(err));
+      });
+  };
+};
 
 export const loadOrdersSuccess = (orders) => {
-  return{
+  return {
     type: actionTypes.loadOrdersSuccess,
-    orders: orders
-  }
-}
+    orders: orders,
+  };
+};
 
 export const loadOrdersError = (error) => {
-  return{
+  return {
     type: actionTypes.loadOrdersError,
-    error: error
-  }
-}
+    error: error,
+  };
+};
 
 export const loadOrdersStart = () => {
   return {
-    type: actionTypes.loadOrdersStart
-  }
-}
+    type: actionTypes.loadOrdersStart,
+  };
+};
